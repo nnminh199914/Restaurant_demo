@@ -8,6 +8,7 @@ import {
 import { SubHeading } from "../../components";
 import { images } from "../../constants";
 import "./Gallery.css";
+import { Reveal } from "../../constants/Reveal";
 
 const Gallery = () => {
   const scrollRef = React.useRef(null);
@@ -26,7 +27,9 @@ const Gallery = () => {
     <div className="app__gallery flex__center">
       <div className="app__gallery-content">
         <SubHeading title="Instagram" />
-        <h1 className="headtext__cormorant">Photo Gallery</h1>
+        <Reveal cover={true}>
+          <h1 className="headtext__cormorant">Photo Gallery</h1>
+        </Reveal>  
         <p
           className="p__opensans"
           style={{ color: "#AAAAAA", marginTop: "2rem" }}
@@ -50,7 +53,9 @@ const Gallery = () => {
               className="app__gallery-images_card flex__center"
               key={`gallery_image-${index + 1}`}
             >
-              <img src={image} alt="gallery_image" />
+              <Reveal cover={false}>
+                <img src={image} alt="gallery_image" />
+              </Reveal>  
               <BsInstagram className="gallery__image-icon" />
             </div>
           ))}
