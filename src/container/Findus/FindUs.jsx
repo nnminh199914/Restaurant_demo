@@ -2,6 +2,8 @@ import React from "react";
 
 import { SubHeading } from "../../components";
 import { images } from "../../constants";
+import { Parallax } from "react-scroll-parallax";
+import { Reveal } from "../../constants/Reveal";
 
 const FindUs = () => (
   <div className="app__bg app__wrapper section__padding" id="contact">
@@ -33,7 +35,11 @@ const FindUs = () => (
     </div>
 
     <div className="app__wrapper_img">
-      <img src={images.findus} alt="finus_img" />
+    <Reveal cover={true}>
+      <Parallax speed={-30}>
+        <img src={images.findus} alt="finus_img" />
+      </Parallax>
+    </Reveal>  
     </div>
   </div>
 );

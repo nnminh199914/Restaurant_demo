@@ -9,7 +9,7 @@ import { SubHeading } from "../../components";
 import { images } from "../../constants";
 import "./Gallery.css";
 import { Reveal } from "../../constants/Reveal";
-
+import { Parallax } from "react-scroll-parallax";
 const Gallery = () => {
   const scrollRef = React.useRef(null);
 
@@ -54,8 +54,10 @@ const Gallery = () => {
               key={`gallery_image-${index + 1}`}
             >
               <Reveal cover={false}>
-                <img src={image} alt="gallery_image" />
-              </Reveal>  
+                <Parallax speed={-30}>
+                  <img src={image} alt="gallery_image" />
+                </Parallax>
+                </Reveal>  
               <BsInstagram className="gallery__image-icon" />
             </div>
           ))}

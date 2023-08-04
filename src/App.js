@@ -10,7 +10,6 @@ import {
   useAnimationFrame
 } from "framer-motion";
 import { wrap } from "@motionone/utils";
-
 import {
   AboutUs,
   Chef,
@@ -23,8 +22,9 @@ import {
   SpecialMenu,
 } from "./container";
 import { Navbar  } from "./components";
- 
 import "./App.css";
+import { ParallaxProvider } from 'react-scroll-parallax';
+
 
 
 export function ParallaxText({ children, baseVelocity = 100 }) {
@@ -94,22 +94,25 @@ function App() {
 
   return (
   <>
-    <div>
-      <Navbar />
-      <Header />
-      <AboutUs />
-      <SpecialMenu />
-      <Chef />
-      <Intro />
-      <Laurels />
-      <Gallery />
-      <FindUs />
-      <Footer />
-    <motion.div
-      className="progress-bar"
-      style={{ scaleX: scrollYProgress }}
-      />
-  </div>
+    <ParallaxProvider>
+        <div>
+          <Navbar />
+          <Header />
+          <AboutUs />
+          <SpecialMenu />
+          <Chef />
+          <Intro />
+          <Laurels />
+          <Gallery />
+          <FindUs />
+          <Footer />
+        <motion.div
+          className="progress-bar"
+          style={{ scaleX: scrollYProgress }}
+          />
+      </div>
+  </ParallaxProvider>
+
 </>
 )};
 

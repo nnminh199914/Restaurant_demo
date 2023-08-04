@@ -3,6 +3,8 @@ import React from "react";
 import { SubHeading, MenuItem } from "../../components";
 import { data, images } from "../../constants";
 import "./SpecialMenu.css";
+import { Parallax } from "react-scroll-parallax";
+
 
 // Лучше перезагрузить локал хост для тяги данных
 
@@ -29,7 +31,9 @@ const SpecialMenu = () => (
       </div>
 
       <div className="app__specialMenu-menu_img">
+      <Parallax speed={-10}>
         <img src={images.menu} alt="menu__img" />
+      </Parallax> 
       </div>
 
       <div className="app__specialMenu-menu_cocktails  flex__center">

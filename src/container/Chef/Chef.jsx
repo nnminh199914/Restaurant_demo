@@ -3,12 +3,16 @@ import { Reveal } from "../../constants/Reveal";
 import { SubHeading } from "../../components";
 import { images } from "../../constants";
 import "./Chef.css";
+import { Parallax  } from 'react-scroll-parallax';
+
 
 const Chef = () => (
   <div className="app__bg app__wrapper section__padding">
     <div className="app__wrapper_img app__wrapper_img-reverse">
       <Reveal cover={true}>
+    <Parallax speed={-30}>
         <img src={images.chef} alt="chef_image" />
+    </Parallax>
       </Reveal>
     </div>
     <div className="app__wrapper_info">
@@ -19,7 +23,9 @@ const Chef = () => (
 
       <div className="app__chef-content">
         <div className="app__chef-content_quote">
+        <Parallax speed={7}>
           <img src={images.quote} alt="quote_image" />
+        </Parallax>
           <p className="p__opensans">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit auctor sit .
           </p>

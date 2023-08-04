@@ -3,13 +3,30 @@ import { BsFillPlayFill, BsPauseFill } from "react-icons/bs";
 
 import { meal } from "../../constants";
 import "./Intro.css";
+import { useInView, useAnimation } from "framer-motion";
+import { useRef, useEffect } from "react";
+
 
 const Intro = () => {
   const [playVideo, setPlayVideo] = React.useState(false);
   const vidRef = React.useRef();
+  const ref = useRef(null);
+  const mainControls = useAnimation();
+  const slideControls = useAnimation();
+  const isInView = useInView(ref);
+
+
+  useEffect(() => {
+    console.log(isInView)
+    if(isInView){
+      vidRef.current.play();
+    }else{
+      vidRef.current.pause();
+    }
+  },[isInView, mainControls, slideControls]);
 
   return (
-    <div className="app__video">
+    <div ref={ref} className="app__video">
       <video
         ref={vidRef}
         src={meal}
@@ -19,23 +36,6 @@ const Intro = () => {
         muted
       />
       <div className="app__video-overlay flex__center">
-        <div
-          className="app__video-overlay_circle flex__center"
-          onClick={() => {
-            setPlayVideo(!playVideo);
-            if (playVideo) {
-              vidRef.current.pause();
-            } else {
-              vidRef.current.play();
-            }
-          }}
-        >
-          {playVideo ? (
-            <BsPauseFill color="#fff" fontSize={30} />
-          ) : (
-            <BsFillPlayFill color="#fff" fontSize={30} />
-          )}
-        </div>
       </div>
     </div>
   );

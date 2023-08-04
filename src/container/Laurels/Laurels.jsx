@@ -2,6 +2,7 @@ import React from "react";
 import { Reveal } from "../../constants/Reveal";
 import { SubHeading } from "../../components";
 import { images, data } from "../../constants";
+import { Parallax } from "react-scroll-parallax";
 import "./Laurels.css";
 
 const AwardCard = ({ award: { imgUrl, title, subtitle } }) => (
@@ -31,8 +32,13 @@ const Laurels = () => (
       </div>
     </div>
 
-    <div className="app__wrapper_img">
-      <img src={images.laurels} alt="laurels_img" />
+    <div className="app__wrapper_img app__wrapper_img-reverse">
+      <Reveal cover={true}>
+      <Parallax speed={-30}>
+        <img src={images.laurels} alt="laurels_img" />
+
+      </Parallax>
+      </Reveal>  
     </div>
   </div>
 );

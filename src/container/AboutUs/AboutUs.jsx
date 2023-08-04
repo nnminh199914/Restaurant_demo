@@ -3,6 +3,7 @@ import { images } from "../../constants";
 import "./AboutUs.css";
 import { Reveal } from "../../constants/Reveal";
 import { ParallaxText } from "../../App";
+import { Parallax } from "react-scroll-parallax";
 
 const AboutUs = () => (
   <>
@@ -36,7 +37,9 @@ const AboutUs = () => (
       </div>
       <Reveal cover={false}>
         <div className="app__aboutus-content_knife flex__center">
-          <img src={images.knife} alt="about_knife" />
+        <Parallax speed={-30}>
+            <img src={images.knife} alt="about_knife" />
+        </Parallax>
         </div>
       </Reveal >
       <div className="app__aboutus-content_history">

@@ -4,6 +4,7 @@ import { SubHeading } from "../../components";
 import { images } from "../../constants";
 import { motion } from "framer-motion";
 import "./Header.css";
+import { Parallax  } from 'react-scroll-parallax';
 
 const Header = () => (
   <div className="app__header app__wrapper section__padding" id="home">
@@ -31,7 +32,10 @@ const Header = () => (
           ease: [0, 0.71, 0.2, 1.01]
         }}
       >
-        <img src={images.welcome} alt="header_img" />
+        <Parallax speed={-30}>
+          <img src={images.welcome} alt="header_img" />
+        </Parallax>
+
       </motion.div>
     </div>
   </div>
